@@ -50,8 +50,9 @@ public class Main {
 
                 case 3:
                     showList(ships);
-                    System.out.println("Seleccione una nave: ");
+                    System.out.println("\nSeleccione una nave: ");
                     op = scan.nextInt();
+                    ships.get(op-1).showMenu();
                     op =3;
                     break;
 

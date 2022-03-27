@@ -67,7 +67,30 @@ public class Shuttle extends Spacecraft{
 
     @Override
     public void showMenu() {
-        // TODO Auto-generated method stub
-        
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\033[H\033[2J");
+        System.out.println("MENU\n1. Despegar\n2. Bajar velocidad\n3. Status de la misión.\n0. Salir");
+        int op = sc.nextInt();
+        while(op !=0){
+            switch (op) {
+                case 1:
+                    this.accelerate();
+                    break;
+
+                case 2:
+                    this.decelerate();
+                    break;
+
+                case 3:
+                    this.sendMessage();
+                    break;
+            
+                default:
+                System.out.println("Seleccione un opción valida.");
+                    break;
+            }
+            System.out.println("MENU\n1. Despegar\n2. Bajar velocidad\n0. Salir");
+            op = sc.nextInt();
+        }
     }
 }

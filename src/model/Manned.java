@@ -92,7 +92,44 @@ public class Manned extends Spacecraft{
 
     @Override
     public void showMenu() {
-        // TODO Auto-generated method stub
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\033[H\033[2J");
+        System.out.println("MENU\n1. Acelerar\n2. Frenar\n3. Status de la misión.\n4. Nivel de combustible.\n5. Velocidad Actual.\n0. Salir");
+        int op = sc.nextInt();
+        while(op !=0){
+            switch (op) {
+                case 1:
+                    System.out.println("Ingrese numero de segundos a acelerar");
+                    op = sc.nextInt();
+                    if(op ==0){
+                        this.accelerate();
+                    }else{
+                        this.accelerate(op);
+                    }
+                    op = 1;
+                    break;
+
+                case 2:
+                    this.decelerate();
+                    break;
+
+                case 3:
+                    System.out.println(this.sendMessage("status"));
+                    break;
+                case 4:
+                    System.out.println(this.sendMessage("fuel"));
+                    break;
+                case 5:
+                    System.out.println(this.sendMessage("speed"));
+                    break;
+            
+                default:
+                System.out.println("Seleccione un opción valida.");
+                    break;
+            }
+            System.out.println("MENU\n1. Acelerar\n2. Frenar\n3. Status de la misión.\n4. Nivel de combustible.\n5. Velocidad Actual.\n0. Salir");
+            op = sc.nextInt();
+        }
         
     }
 }
